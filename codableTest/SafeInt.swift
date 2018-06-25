@@ -30,9 +30,9 @@ struct SafeInt: Codable {
     }
     
     private static func checkForDouble(container: SingleValueDecodingContainer) -> Int? {
-        guard let blah = try? container.decode(Double.self) else { return nil }
+        guard let doubleValue = try? container.decode(Double.self) else { return nil }
         
-        return roundDouble(value: blah)
+        return roundDouble(value: doubleValue)
     }
     
     private static func checkForString(container: SingleValueDecodingContainer) -> Int? {

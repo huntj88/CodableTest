@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SafeBool {
+struct SafeBool: Codable {
     private let value: Bool
     
     init(from decoder: Decoder) throws {

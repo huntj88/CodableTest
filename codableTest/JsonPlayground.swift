@@ -10,7 +10,6 @@ import Foundation
 
 
 class DoStuff {
-    
     let json = """
 {
 "name": "James",
@@ -19,10 +18,13 @@ class DoStuff {
 "num3": "5.6",
 "num4": "6",
 "num5": null,
-"num6": "4.7"
+"num6": "4.7",
+"num7": 5.8,
+"bool1": true,
+"bool2": "False",
+"bool3": null
 }
 """
-    
     func start() {
         
         let jsonData = json.data(using: .utf8)!
@@ -30,20 +32,19 @@ class DoStuff {
         let person = try! decoder.decode(Person.self, from: jsonData)
         print(person)
         
-        //let blahNum = person.num1 - person.num3
+        print(person.num1 - person.num3)
         
-        //let blahNum2 = person.num2 + 5
-    
-        let addCheck = 0.1 - person.num2 * 1.2
+        print(person.num2 + 5)
         
-        let addCheck1 = person.num6 + 2
+        print(0.1 - person.num2 * 1.2)
         
-        let intDouble = person.num6 + person.num2
-        print(addCheck1)
+        print(person.num6 + 2)
+        
+        print(person.num6 + person.num2)
+        
+        print(person.bool2 == false)
     }
 }
-
-
 
 struct Person: Codable {
     let name: String
@@ -53,6 +54,10 @@ struct Person: Codable {
     let num4: SafeInt
     let num5: SafeInt?
     let num6: SafeDouble
+    let num7: SafeDouble
+    let bool1: SafeBool
+    let bool2: SafeBool
+    let bool3: SafeBool?
     
     enum CodingKeys : String, CodingKey {
         case name
@@ -62,6 +67,10 @@ struct Person: Codable {
         case num4
         case num5
         case num6
+        case num7
+        case bool1
+        case bool2
+        case bool3
     }
 }
 
