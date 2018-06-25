@@ -40,8 +40,10 @@ struct SafeInt: Codable {
         
         if let doubleFromString = Double(stringValue) {
             return roundDouble(value: doubleFromString)
+        } else if let intFromString = Int(stringValue) {
+            return intFromString
         } else {
-            return Int(stringValue)
+            return nil
         }
     }
     
@@ -184,4 +186,55 @@ extension SafeInt {
         return lhs.value < rhs
     }
     
+    
+    // other safe types
+    static func +(lhs: SafeInt, rhs: SafeDouble) -> Double {
+        return Double(lhs + 0) + rhs
+    }
+    
+    static func -(lhs: SafeInt, rhs: SafeDouble) -> Double {
+        return Double(lhs + 0) - rhs
+    }
+    
+    static func /(lhs: SafeInt, rhs: SafeDouble) -> Double {
+        return Double(lhs + 0) / rhs
+    }
+    
+    static func *(lhs: SafeInt, rhs: SafeDouble) -> Double {
+        return Double(lhs + 0) * rhs
+    }
+    
+    
+    //other types
+    static func +(lhs: SafeInt, rhs: Double) -> Double {
+        return Double(lhs + 0) + rhs
+    }
+    
+    static func -(lhs: SafeInt, rhs: Double) -> Double {
+        return Double(lhs + 0) - rhs
+    }
+    
+    static func /(lhs: SafeInt, rhs: Double) -> Double {
+        return Double(lhs + 0) / rhs
+    }
+    
+    static func *(lhs: SafeInt, rhs: Double) -> Double {
+        return Double(lhs + 0) * rhs
+    }
+    
+    static func +(lhs: Double, rhs: SafeInt) -> Double {
+        return lhs + (rhs + 0)
+    }
+    
+    static func -(lhs: Double, rhs: SafeInt) -> Double {
+        return lhs - (rhs + 0)
+    }
+    
+    static func /(lhs: Double, rhs: SafeInt) -> Double {
+        return lhs / (rhs + 0)
+    }
+    
+    static func *(lhs: Double, rhs: SafeInt) -> Double {
+        return lhs * (rhs + 0)
+    }
 }

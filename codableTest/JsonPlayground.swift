@@ -18,7 +18,8 @@ class DoStuff {
 "num2": 5.6,
 "num3": "5.6",
 "num4": "6",
-"num5": null
+"num5": null,
+"num6": "4.7"
 }
 """
     
@@ -33,8 +34,12 @@ class DoStuff {
         
         //let blahNum2 = person.num2 + 5
     
-        let boolCheck = person.num2 != 6
-        print(boolCheck)
+        let addCheck = 0.1 - person.num2 * 1.2
+        
+        let addCheck1 = person.num6 + 2
+        
+        let intDouble = person.num6 + person.num2
+        print(addCheck1)
     }
 }
 
@@ -47,6 +52,7 @@ struct Person: Codable {
     let num3: SafeInt
     let num4: SafeInt
     let num5: SafeInt?
+    let num6: SafeDouble
     
     enum CodingKeys : String, CodingKey {
         case name
@@ -55,6 +61,7 @@ struct Person: Codable {
         case num3
         case num4
         case num5
+        case num6
     }
 }
 
