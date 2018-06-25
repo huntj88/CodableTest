@@ -14,69 +14,45 @@ class DoStuff {
     let json = """
 {
 "name": "James",
-"age": null,
+"num1": 6,
+"num2": 5.6,
+"num3": "5.6",
+"num4": "6",
+"num5": null
 }
 """
     
     func start() {
+        
         let jsonData = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         let person = try! decoder.decode(Person.self, from: jsonData)
         print(person)
+        
+        let blahNum = person.num1 - person.num3
+        
+        let blahNum2 = person.num2 + 5
+    
     }
 }
 
-enum SafeError : Error {
-    case errors
-}
 
-struct SafeInt: Codable {
-    var value: Int
-    
-    init(from decoder: Decoder) throws {
-        
-        let container = try decoder.singleValueContainer()
-        
-        if let blah = SafeInt.checkForInt(container: container) {
-            value = blah
-        } else if let blah2 = SafeInt.checkForDouble(container: container) {
-            value = blah2
-        } else if let blah3 = SafeInt.checkForString(container: container) {
-            value = blah3
-        } else {
-            throw SafeError.errors
-        }
-    }
-        
-    static func checkForInt(container: SingleValueDecodingContainer) -> Int? {
-        return try? container.decode(Int.self)
-    }
-    
-    static func checkForDouble(container: SingleValueDecodingContainer) -> Int? {
-        if let blah = try? container.decode(Double.self).rounded(FloatingPointRoundingRule.toNearestOrEven) {
-            return Int(blah)
-        }
-        
-        return nil
-    }
-    
-    static func checkForString(container: SingleValueDecodingContainer) -> Int? {
-        if let blah = try? container.decode(String.self) {
-            //todo if double, also round
-            return Int(blah)
-        }
-        
-        return nil
-    }
-}
 
 struct Person: Codable {
     let name: String
-    let age: SafeInt?
+    let num1: SafeInt
+    let num2: SafeInt
+    let num3: SafeInt
+    let num4: SafeInt
+    let num5: SafeInt?
     
     enum CodingKeys : String, CodingKey {
         case name
-        case age
+        case num1
+        case num2
+        case num3
+        case num4
+        case num5
     }
 }
 
