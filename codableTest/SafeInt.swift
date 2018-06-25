@@ -9,7 +9,7 @@
 import Foundation
 
 struct SafeInt: Codable {
-    private var value: Int
+    private let value: Int
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -51,6 +51,34 @@ struct SafeInt: Codable {
 }
 
 extension SafeInt {
+    // equality for SafeInt, SafeInt
+    static func ==(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
+    static func !=(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value != rhs.value
+    }
+    
+    static func >=(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value >= rhs.value
+    }
+    
+    static func <=(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value <= rhs.value
+    }
+    
+    static func >(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value > rhs.value
+    }
+    
+    static func <(lhs: SafeInt, rhs: SafeInt) -> Bool {
+        return lhs.value < rhs.value
+    }
+    
+    
+    
+    // math operators for SafeInt, SafeInt
     static func -(lhs: SafeInt, rhs: SafeInt) -> Int {
         return lhs.value - rhs.value
     }
@@ -68,6 +96,11 @@ extension SafeInt {
     }
     
     
+    
+    
+    
+    
+    // math operators for SafeInt, Int
     static func +(lhs: Int, rhs: SafeInt) -> Int {
         return lhs + rhs.value
     }
@@ -99,4 +132,56 @@ extension SafeInt {
     static func *(lhs: SafeInt, rhs: Int) -> Int {
         return lhs.value * rhs
     }
+    
+    
+    
+    // equality for SafeInt, Int
+    static func ==(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs == rhs.value
+    }
+    
+    static func ==(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value == rhs
+    }
+    
+    static func !=(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs != rhs.value
+    }
+    
+    static func !=(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value != rhs
+    }
+    
+    static func >=(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs >= rhs.value
+    }
+    
+    static func >=(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value >= rhs
+    }
+    
+    static func <=(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs <= rhs.value
+    }
+    
+    static func <=(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value <= rhs
+    }
+    
+    static func >(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs > rhs.value
+    }
+    
+    static func >(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value > rhs
+    }
+    
+    static func <(lhs: Int, rhs: SafeInt) -> Bool {
+        return lhs < rhs.value
+    }
+    
+    static func <(lhs: SafeInt, rhs: Int) -> Bool {
+        return lhs.value < rhs
+    }
+    
 }

@@ -29,10 +29,12 @@ class DoStuff {
         let person = try! decoder.decode(Person.self, from: jsonData)
         print(person)
         
-        let blahNum = person.num1 - person.num3
+        //let blahNum = person.num1 - person.num3
         
-        let blahNum2 = person.num2 + 5
+        //let blahNum2 = person.num2 + 5
     
+        let boolCheck = person.num2 != 6
+        print(boolCheck)
     }
 }
 
