@@ -27,6 +27,10 @@ struct TemplateDecoder: Decodable {
             decoderType = try CardDecoder(from: decoder)
         case "CardHeaderOne":
             decoderType = try CardHeaderOneDecoder(from: decoder)
+        case "CardHeaderTwo":
+            decoderType = try CardHeaderTwoDecoder(from: decoder)
+        case "CardThreeValue":
+            decoderType = try CardThreeValueDecoder(from: decoder)
         default:
             throw SafeError.errors
         }
@@ -98,6 +102,53 @@ struct CardHeaderOneDecoder: Decodable, DecoderType {
     
     func simplify() -> Template {
         return CardHeaderOne(title: title)
+    }
+    
+}
+
+struct CardHeaderTwoDecoder: Decodable, DecoderType {
+    
+    let title: String
+    let navigation: String
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        navigation = try container.decode(String.self, forKey: .navigation)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case navigation
+    }
+    
+    func simplify() -> Template {
+        return CardHeaderTwo(title: title, navigation: navigation)
+    }
+    
+}
+
+struct CardThreeValueDecoder: Decodable, DecoderType {
+    
+    let title: String
+    let data: String
+    let extra: String
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        data = try container.decode(String.self, forKey: .data)
+        extra = try container.decode(String.self, forKey: .extra)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case data
+        case extra
+    }
+    
+    func simplify() -> Template {
+        return CardThreeValue(title: title, data: data, extra: extra)
     }
     
 }

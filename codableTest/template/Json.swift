@@ -24,8 +24,33 @@ let simpleJson = """
         },
         {
             "type": "Card",
-            "children": []
+            "children": [
+                {
+                    "type": "CardHeaderTwo",
+                    "title": "hello",
+                    "navigation": "Home/Portfolio"
+                },
+                {
+                    "type": "CardThreeValue",
+                    "title": "sup",
+                    "data": "cool data",
+                    "extra": "some extra text"
+                }
+            ]
         }
     ]
 }
 """
+
+/*
+ Page(children: [
+    codableTest.Card(children: [
+        codableTest.CardHeaderOne(title: "hello")
+    ]),
+    codableTest.Card(children: [
+        codableTest.CardHeaderTwo(title: "hello", navigation: "Home/Portfolio"),
+        codableTest.CardThreeValue(title: "sup", data: "cool data", extra: "some extra text")
+    ])
+ ])
+
+ */

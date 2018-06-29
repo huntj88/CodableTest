@@ -18,7 +18,4 @@ class DoTemplateStuff {
         let template = templateDecoder.decoderType.simplify()
         print(template)
     }
-    
-    
 }
-
