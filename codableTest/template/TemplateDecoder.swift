@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol DecoderType {}
+protocol DecoderType {
+    func simplify() -> Template
+}
 
 struct TemplateDecoder: Decodable {
     
@@ -47,6 +49,15 @@ struct PageDecoder: Decodable, DecoderType {
     enum CodingKeys: String, CodingKey {
         case children
     }
+    
+    func simplify() -> Template {
+        let childTemplates = children.map { child in
+            child.decoderType.simplify()
+        }
+        
+        return Page(children: childTemplates)
+    }
+    
 }
 
 struct CardDecoder: Decodable, DecoderType {
@@ -62,6 +73,14 @@ struct CardDecoder: Decodable, DecoderType {
         case children
     }
     
+    func simplify() -> Template {
+        let childTemplates = children.map { child in
+            child.decoderType.simplify()
+        }
+        
+        return Card(children: childTemplates)
+    }
+    
 }
 
 struct CardHeaderOneDecoder: Decodable, DecoderType {
@@ -75,6 +94,10 @@ struct CardHeaderOneDecoder: Decodable, DecoderType {
     
     enum CodingKeys: String, CodingKey {
         case title
+    }
+    
+    func simplify() -> Template {
+        return CardHeaderOne(title: title)
     }
     
 }
