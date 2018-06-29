@@ -13,6 +13,7 @@
 		0E9F005720DD960D009C94B5 /* codableTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9F005620DD960D009C94B5 /* codableTestTests.swift */; };
 		0E9F006220DD960D009C94B5 /* codableTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9F006120DD960D009C94B5 /* codableTestUITests.swift */; };
 		0E9F007020DD9676009C94B5 /* JsonPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9F006F20DD9676009C94B5 /* JsonPlayground.swift */; };
+		0EBBAF0120E6B295008FAF28 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBAF0020E6B295008FAF28 /* Template.swift */; };
 		0EDE1D2520E149CF00170F68 /* SafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE1D2420E149CF00170F68 /* SafeInt.swift */; };
 		0EDE1D2720E14A8100170F68 /* SafeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE1D2620E14A8100170F68 /* SafeError.swift */; };
 		0EDE1D2920E14B3E00170F68 /* SafeBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE1D2820E14B3E00170F68 /* SafeBool.swift */; };
@@ -50,6 +51,7 @@
 		0E9F006120DD960D009C94B5 /* codableTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codableTestUITests.swift; sourceTree = "<group>"; };
 		0E9F006320DD960D009C94B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E9F006F20DD9676009C94B5 /* JsonPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPlayground.swift; sourceTree = "<group>"; };
+		0EBBAF0020E6B295008FAF28 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		0EDE1D2420E149CF00170F68 /* SafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeInt.swift; sourceTree = "<group>"; };
 		0EDE1D2620E14A8100170F68 /* SafeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeError.swift; sourceTree = "<group>"; };
 		0EDE1D2820E14B3E00170F68 /* SafeBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBool.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				0E9F004520DD960D009C94B5 /* AppDelegate.swift */,
 				0E9F006F20DD9676009C94B5 /* JsonPlayground.swift */,
+				0EBBAF0020E6B295008FAF28 /* Template.swift */,
 				0EDE1D2620E14A8100170F68 /* SafeError.swift */,
 				0EDE1D2420E149CF00170F68 /* SafeInt.swift */,
 				0EDE1D2A20E1533900170F68 /* SafeDouble.swift */,
@@ -274,6 +277,7 @@
 				0EDE1D2920E14B3E00170F68 /* SafeBool.swift in Sources */,
 				0E9F007020DD9676009C94B5 /* JsonPlayground.swift in Sources */,
 				0E9F004620DD960D009C94B5 /* AppDelegate.swift in Sources */,
+				0EBBAF0120E6B295008FAF28 /* Template.swift in Sources */,
 				0EDE1D2720E14A8100170F68 /* SafeError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,16 +33,13 @@ class DoStuff {
         print(person)
         
         print(person.num1 - person.num3)
-        
         print(person.num2 + 5)
-        
         print(0.1 - person.num2 * 1.2)
-        
         print(person.num6 + 2)
-        
         print(person.num6 + person.num2)
-        
         print(person.bool2 == false)
+        
+        let blah: Int = 0 + person.num1
     }
 }
 
@@ -58,20 +55,6 @@ struct Person: Codable {
     let bool1: SafeBool
     let bool2: SafeBool
     let bool3: SafeBool?
-    
-    enum CodingKeys : String, CodingKey {
-        case name
-        case num1
-        case num2
-        case num3
-        case num4
-        case num5
-        case num6
-        case num7
-        case bool1
-        case bool2
-        case bool3
-    }
 }
 
 
