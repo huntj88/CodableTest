@@ -14,6 +14,8 @@ class DoTemplateStuff {
         let jsonData = simpleJson.data(using: .utf8)!
         let decoder = JSONDecoder()
         let templateDecoder = try! decoder.decode(TemplateDecoder.self, from: jsonData)
+        
+        print(templateDecoder)
 
         let template = templateDecoder.decoderType.simplify()
         print(template)
